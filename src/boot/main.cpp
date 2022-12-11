@@ -13,7 +13,7 @@ extern "C" void main(void) {
       }
       struct limine_terminal *terminal = TerminalRequest.response->terminals[0];
       log("\e[1;1H\e[2J");
-      log("Hello, world!\nstarting aqua 0.0.1...");
+      log("Hello, world!\nstarting vision 0.0.1...");
       log("starting PIC...");
       InitPIC();
       log("done!");
@@ -25,7 +25,7 @@ extern "C" void main(void) {
       log("starting framebuffer...");
       InitFB();
       log("done!");
-      TerminalRequest.response->write(terminal, "check debug console if you want to interact with aqua", 54);
+      TerminalRequest.response->write(terminal, "check debug console if you want to interact with vision", 54);
       for (;;) {
          asm ("hlt");
       }

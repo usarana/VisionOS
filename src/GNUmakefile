@@ -1,4 +1,4 @@
-override KERNEL := aqua.elf
+override KERNEL := vision.elf
 
 define DEFAULT_VAR =
     ifeq ($(origin $1), default)
