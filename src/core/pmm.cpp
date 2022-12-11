@@ -72,7 +72,7 @@ namespace mm::pmm {
     }
 
     void init() {
-        log("Initialising PMM");
+
 
         limine_memmap_entry **memmaps = MemoryMapRequest.response->entries;
         uint64_t memmap_count = MemoryMapRequest.response->entry_count;
@@ -111,6 +111,6 @@ namespace mm::pmm {
             }
         }
 
-        log("Done!");
+
     }
 }

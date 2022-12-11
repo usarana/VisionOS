@@ -6,27 +6,33 @@
 #include <core/idt.hpp>
 #include <core/mm.hpp>
 #include <dev/fb.hpp>
-
+#include <common/string.hpp>
+struct limine_terminal *terminal;
+void print(const char* str) {
+	TerminalRequest.response->write(terminal, str, strlen(str));
+}
 extern "C" void main(void) {
       if (TerminalRequest.response == NULL || TerminalRequest.response->terminal_count < 1) {
         asm("hlt");
       }
-      struct limine_terminal *terminal = TerminalRequest.response->terminals[0];
-      log("\e[1;1H\e[2J");
-      log("Hello, world!\nstarting vision 0.0.1...");
-      log("starting PIC...");
-      InitPIC();
-      log("done!");
-      log("starting CPU features..");
+
+      terminal = TerminalRequest.response->terminals[0];
+
+      log("[Debug Console]");
+      
+	  log("Starting PIC..."); 
+	  InitPIC();
+
+      log("Starting CPU features..");
       InitCPUfeat();
-      log("done!");
       mm::pmm::init();
       idt::init();
-      log("starting framebuffer...");
+      
+	  log("Starting framebuffer...");
       InitFB();
-      log("done!");
-      TerminalRequest.response->write(terminal, "check debug console if you want to interact with vision", 54);
-      for (;;) {
+
+      print("Hello, world!");
+      while (1) {
          asm ("hlt");
       }
 }

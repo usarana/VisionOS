@@ -27,11 +27,9 @@ namespace idt {
     }
 
     void init() {
-        log("starting IDT...");
         idtr.Limit = sizeof(IDTEntry) * 256 - 1;
         idtr.Base = reinterpret_cast<uintptr_t>(&idt[0]);
         memset(idt, 0, sizeof(idt));
         IdtDescriptor = {sizeof(idt), (uint64_t)&idt};
-        log("Done!");
     }
 }
