@@ -3,7 +3,7 @@
 #include <core/cpu.hpp>
 #include <core/gdt.hpp>
 #include <core/idt.hpp>
-#include <../cxx/icxxabi/icxxabi.h>
+#include "../cxx/icxxabi/icxxabi.h"
 namespace idt {
     InterruptHandler handlers[256];
     static IDTGate idt[256];
