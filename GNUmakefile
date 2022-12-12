@@ -25,18 +25,18 @@ ovmf-x64:
 	cd ovmf-x64 && curl -o OVMF-X64.zip https://efi.akeo.ie/OVMF/OVMF-X64.zip && 7z x OVMF-X64.zip
 
 limine:
-	git clone https://github.com/limine-bootloader/limine.git --branch=v3.0-branch-binary --depth=1
+	git clone https://github.com/limine-bootloader/limine.git --branch=v4.0-branch-binary --depth=1
 	make -C limine
 
 .PHONY: kernel
 kernel:
 	$(MAKE) -C src
-	cp src/vision.elf -r bin/vision.elf
+	cp src/vision -r bin/vision
 
 vision.iso: limine kernel
 	rm -rf iso_root
 	mkdir -p iso_root
-	cp src/vision.elf \
+	cp src/vision \
 		limine.cfg limine/limine.sys limine/limine-cd.bin limine/limine-cd-efi.bin iso_root/
 	xorriso -as mkisofs -b limine-cd.bin \
 		-no-emul-boot -boot-load-size 4 -boot-info-table \

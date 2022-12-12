@@ -1,5 +1,5 @@
 #include <dev/fb.hpp>
-#include <boot/LimineRequests.hpp>
+#include <init/LimineRequests.hpp>
 #include <cxx/cstddef>
 #include <cxx/cstdint>
 

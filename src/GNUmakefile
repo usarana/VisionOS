@@ -1,4 +1,4 @@
-override KERNEL := vision.elf
+override KERNEL := vision
 
 define DEFAULT_VAR =
     ifeq ($(origin $1), default)

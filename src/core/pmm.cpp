@@ -1,4 +1,4 @@
-#include <boot/LimineRequests.hpp>
+#include <init/LimineRequests.hpp>
 #include <common/common.hpp>
 #include <common/string.hpp>
 #include <common/bitmap.hpp>

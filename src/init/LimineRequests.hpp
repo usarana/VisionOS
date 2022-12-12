@@ -1,6 +1,6 @@
 #pragma once
 
-#include <boot/limine.h>
+#include <init/limine.h>
 
 uint64_t inline HHDMOffset = 0;
 static constexpr uint64_t STACK_SIZE = 0x4000;

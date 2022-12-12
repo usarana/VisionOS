@@ -1,6 +1,6 @@
 #pragma once
 
-#include <boot/LimineRequests.hpp>
+#include <init/LimineRequests.hpp>
 
 constexpr uint64_t align_down(uint64_t n, uint64_t a) {
     return (n & ~(a - 1));
