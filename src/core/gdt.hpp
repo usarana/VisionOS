@@ -57,3 +57,5 @@ struct [[gnu::packed]] TSS {
     uint16_t Reserved3;
     uint16_t IOPBOffset;
 };
+
+void Initialize(void);
